@@ -19790,7 +19790,18 @@
 	  function TodoApp() {
 	    _classCallCheck(this, TodoApp);
 
-	    return _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this));
+
+	    _this.state = {
+	      todos: [{
+	        id: 1,
+	        text: 'Walk the dog'
+	      }, {
+	        id: 2,
+	        text: 'Clean the yard'
+	      }]
+	    };
+	    return _this;
 	  }
 
 	  _createClass(TodoApp, [{
