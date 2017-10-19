@@ -1,7 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TodoApp from 'TodoApp.jsx';
 
 ReactDOM.render(
-  <h1>Boilerplate app!</h1>,
+  <TodoApp/>,
   document.getElementById('app')
 );
