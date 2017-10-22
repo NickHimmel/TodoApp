@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from 'TodoList.jsx';
 
 class TodoApp extends React.Component {
   constructor () {
@@ -11,14 +12,22 @@ class TodoApp extends React.Component {
         }, {
           id: 2,
           text: 'Clean the yard'
+        }, {
+          id: 3,
+          text: 'Finish this video'
+        }, {
+          id: 4,
+          text: 'Make dinner'
         }
       ]
     }
   }
   render() {
+    var {todos} = this.state;
+
     return (
       <div>
-        TodoApp.jsx
+        <TodoList todos={todos}/>
       </div>
     )
   }
