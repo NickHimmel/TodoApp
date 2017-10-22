@@ -19803,6 +19803,12 @@
 	      }, {
 	        id: 2,
 	        text: 'Clean the yard'
+	      }, {
+	        id: 3,
+	        text: 'Finish this video'
+	      }, {
+	        id: 4,
+	        text: 'Make dinner'
 	      }]
 	    };
 	    return _this;
@@ -19885,12 +19891,15 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Todo = function Todo(props) {
-	  var text = props.text;
+	  var id = props.id,
+	      text = props.text;
 
 
 	  return _react2.default.createElement(
 	    'div',
 	    null,
+	    id,
+	    '. ',
 	    text
 	  );
 	};

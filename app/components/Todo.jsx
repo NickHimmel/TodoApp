@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Todo = (props) => {
-  var {text} = props;
+  var {id, text} = props;
 
   return (
     <div>
-      {text}
+      {id}. {text}
     </div>
   )
 };

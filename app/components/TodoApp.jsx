@@ -12,6 +12,12 @@ class TodoApp extends React.Component {
         }, {
           id: 2,
           text: 'Clean the yard'
+        }, {
+          id: 3,
+          text: 'Finish this video'
+        }, {
+          id: 4,
+          text: 'Make dinner'
         }
       ]
     }
