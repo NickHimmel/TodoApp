@@ -19780,6 +19780,10 @@
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
+	var _AddTodo = __webpack_require__(163);
+
+	var _AddTodo2 = _interopRequireDefault(_AddTodo);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19815,6 +19819,9 @@
 	  }
 
 	  _createClass(TodoApp, [{
+	    key: 'handleClick',
+	    value: function handleClick(todo) {}
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var todos = this.state.todos;
@@ -19823,7 +19830,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_TodoList2.default, { todos: todos })
+	        _react2.default.createElement(_TodoList2.default, { todos: todos }),
+	        _react2.default.createElement(_AddTodo2.default, null)
 	      );
 	    }
 	  }]);
@@ -19905,6 +19913,36 @@
 	};
 
 	exports.default = Todo;
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AddTodo = function AddTodo() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Test'
+	    )
+	  );
+	};
+
+	exports.default = AddTodo;
 
 /***/ })
 /******/ ]);
