@@ -1,9 +1,12 @@
 import React from 'react';
 
-const AddTodo = () => {
+const AddTodo = (props) => {
   return (
     <div>
-      <h2>Test</h2>
+      <form>
+        <input type="text"/>
+        <input type="submit" value="Add Todo"/>
+      </form>
     </div>
   )
 };

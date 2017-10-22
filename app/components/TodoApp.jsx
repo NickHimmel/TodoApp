@@ -22,7 +22,7 @@ class TodoApp extends React.Component {
         }
       ]
     }
-    this.handleClick = this.handeClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   handleClick (todo) {
     alert(todo);

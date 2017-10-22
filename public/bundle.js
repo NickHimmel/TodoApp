@@ -19815,7 +19815,7 @@
 	        text: 'Make dinner'
 	      }]
 	    };
-	    _this.handleClick = _this.handeClick.bind(_this);
+	    _this.handleClick = _this.handleClick.bind(_this);
 	    return _this;
 	  }
 
@@ -19921,7 +19921,7 @@
 /* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19933,14 +19933,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var AddTodo = function AddTodo() {
+	var AddTodo = function AddTodo(props) {
 	  return _react2.default.createElement(
-	    'div',
+	    "div",
 	    null,
 	    _react2.default.createElement(
-	      'h2',
+	      "form",
 	      null,
-	      'Test'
+	      _react2.default.createElement("input", { type: "text" }),
+	      _react2.default.createElement("input", { type: "submit", value: "Add Todo" })
 	    )
 	  );
 	};
