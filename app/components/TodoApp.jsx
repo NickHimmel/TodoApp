@@ -22,9 +22,10 @@ class TodoApp extends React.Component {
         }
       ]
     }
+    this.handleClick = this.handeClick.bind(this);
   }
   handleClick (todo) {
-
+    alert(todo);
   }
   render() {
     var {todos} = this.state;
@@ -32,7 +33,7 @@ class TodoApp extends React.Component {
     return (
       <div>
         <TodoList todos={todos}/>
-        <AddTodo />
+        <AddTodo onClick={this.handleClick}/>
       </div>
     )
   }

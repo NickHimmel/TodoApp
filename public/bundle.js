@@ -19815,12 +19815,15 @@
 	        text: 'Make dinner'
 	      }]
 	    };
+	    _this.handleClick = _this.handeClick.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(TodoApp, [{
 	    key: 'handleClick',
-	    value: function handleClick(todo) {}
+	    value: function handleClick(todo) {
+	      alert(todo);
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -19831,7 +19834,7 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_TodoList2.default, { todos: todos }),
-	        _react2.default.createElement(_AddTodo2.default, null)
+	        _react2.default.createElement(_AddTodo2.default, { onClick: this.handleClick })
 	      );
 	    }
 	  }]);
