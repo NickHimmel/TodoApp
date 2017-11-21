@@ -19776,11 +19776,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodoList = __webpack_require__(161);
+	var _TodoList = __webpack_require__(160);
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
-	var _AddTodo = __webpack_require__(163);
+	var _AddTodo = __webpack_require__(162);
 
 	var _AddTodo2 = _interopRequireDefault(_AddTodo);
 
@@ -19845,8 +19845,7 @@
 	exports.default = TodoApp;
 
 /***/ }),
-/* 160 */,
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19861,7 +19860,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(162);
+	var _Todo = __webpack_require__(161);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
@@ -19886,7 +19885,7 @@
 	exports.default = TodoList;
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19918,7 +19917,7 @@
 	exports.default = Todo;
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19940,7 +19939,7 @@
 	    _react2.default.createElement(
 	      "form",
 	      null,
-	      _react2.default.createElement("input", { type: "text" }),
+	      _react2.default.createElement("input", { type: "text", placeholder: "What do you need to do?" }),
 	      _react2.default.createElement("input", { type: "submit", value: "Add Todo" })
 	    )
 	  );

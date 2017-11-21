@@ -4,7 +4,7 @@ const AddTodo = (props) => {
   return (
     <div>
       <form>
-        <input type="text"/>
+        <input type="text" placeholder="What do you need to do?"/>
         <input type="submit" value="Add Todo"/>
       </form>
     </div>
