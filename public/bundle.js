@@ -19776,7 +19776,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodoList = __webpack_require__(161);
+	var _TodoList = __webpack_require__(160);
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
@@ -19834,8 +19834,7 @@
 	exports.default = TodoApp;
 
 /***/ }),
-/* 160 */,
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19850,7 +19849,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(162);
+	var _Todo = __webpack_require__(161);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
@@ -19875,7 +19874,7 @@
 	exports.default = TodoList;
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
