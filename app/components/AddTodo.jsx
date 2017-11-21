@@ -14,8 +14,12 @@ class AddTodo extends Component {
   }
 
   handleSubmit(event) {
-    alert(this.state.todo)
     event.preventDefault();
+    if (this.state.todo) {
+      this.props.onClick(this.state.todo)
+      this.setState({ todo: '' })
+    }
+    else { alert('Add a todo!') }
   }
 
   render() {
