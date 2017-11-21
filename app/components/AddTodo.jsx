@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class AddTodo extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = { todo: '' }
   }
 
@@ -12,7 +12,7 @@ class AddTodo extends Component {
       <div>
         <form>
           <input type="text" placeholder="What do you need to do?"/>
-          <input type="submit" value="Add Todo"/>
+          <button type="submit">Add Todo</button>
         </form>
       </div>
     );

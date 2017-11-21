@@ -19962,7 +19962,11 @@
 	          'form',
 	          null,
 	          _react2.default.createElement('input', { type: 'text', placeholder: 'What do you need to do?' }),
-	          _react2.default.createElement('input', { type: 'submit', value: 'Add Todo' })
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'submit' },
+	            'Add Todo'
+	          )
 	        )
 	      );
 	    }
