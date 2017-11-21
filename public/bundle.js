@@ -19792,8 +19792,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var TodoApp = function (_React$Component) {
-	  _inherits(TodoApp, _React$Component);
+	var TodoApp = function (_Component) {
+	  _inherits(TodoApp, _Component);
 
 	  function TodoApp() {
 	    _classCallCheck(this, TodoApp);
@@ -19821,8 +19821,8 @@
 
 	  _createClass(TodoApp, [{
 	    key: 'handleClick',
-	    value: function handleClick(todo) {
-	      alert(todo);
+	    value: function handleClick(text) {
+	      alert('new todo:' + text);
 	    }
 	  }, {
 	    key: 'render',
@@ -19840,7 +19840,7 @@
 	  }]);
 
 	  return TodoApp;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	exports.default = TodoApp;
 

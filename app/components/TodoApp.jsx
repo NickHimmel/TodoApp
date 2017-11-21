@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TodoList from 'TodoList.jsx';
 import AddTodo from 'AddTodo.jsx';
 
-class TodoApp extends React.Component {
+class TodoApp extends Component {
   constructor () {
     super();
     this.state = {
@@ -24,9 +24,11 @@ class TodoApp extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick (todo) {
-    alert(todo);
+
+  handleClick (text) {
+    alert('new todo:' + text);
   }
+
   render() {
     var {todos} = this.state;
 
