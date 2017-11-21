@@ -19951,6 +19951,7 @@
 	    _this.state = { todo: '' };
 
 	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    return _this;
 	  }
 
@@ -19960,23 +19961,25 @@
 	      this.setState({ todo: event.target.value });
 	    }
 	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      alert(this.state.todo);
+	      event.preventDefault();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
 	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'form',
-	          null,
-	          _react2.default.createElement('input', {
-	            type: 'text',
-	            placeholder: 'What do you need to do?',
-	            value: this.state.todo,
-	            onChange: this.handleChange
-	          }),
-	          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
-	        )
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'What do you need to do?',
+	          value: this.state.todo,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
 	      );
 	    }
 	  }]);

@@ -6,26 +6,30 @@ class AddTodo extends Component {
     this.state = { todo: '' }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ todo: event.target.value })
   }
 
+  handleSubmit(event) {
+    alert(this.state.todo)
+    event.preventDefault();
+  }
+
   render() {
 
     return (
-      <div>
-        <form>
-          <input
-            type="text"
-            placeholder="What do you need to do?"
-            value={this.state.todo}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Submit"/>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="What do you need to do?"
+          value={this.state.todo}
+          onChange={this.handleChange}
+        />
+        <input type="submit" value="Submit"/>
+      </form>
     );
   }
 }
