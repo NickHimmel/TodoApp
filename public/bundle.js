@@ -19949,24 +19949,33 @@
 	    var _this = _possibleConstructorReturn(this, (AddTodo.__proto__ || Object.getPrototypeOf(AddTodo)).call(this, props));
 
 	    _this.state = { todo: '' };
+
+	    _this.handleChange = _this.handleChange.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(AddTodo, [{
+	    key: 'handleChange',
+	    value: function handleChange(event) {
+	      this.setState({ todo: event.target.value });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          'form',
 	          null,
-	          _react2.default.createElement('input', { type: 'text', placeholder: 'What do you need to do?' }),
-	          _react2.default.createElement(
-	            'button',
-	            { type: 'submit' },
-	            'Add Todo'
-	          )
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            placeholder: 'What do you need to do?',
+	            value: this.state.todo,
+	            onChange: this.handleChange
+	          }),
+	          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
 	        )
 	      );
 	    }
