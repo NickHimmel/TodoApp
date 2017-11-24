@@ -24,10 +24,15 @@ class TodoApp extends Component {
       ]
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleClick (text) {
     alert('new todo:' + text);
+  }
+
+  handleSearch (term) {
+    alert(term)
   }
 
   render() {
@@ -35,7 +40,7 @@ class TodoApp extends Component {
 
     return (
       <div>
-        <TodoSearch />
+        <TodoSearch onSearch={this.handleSearch}/>
         <TodoList todos={todos}/>
         <AddTodo onClick={this.handleClick}/>
       </div>

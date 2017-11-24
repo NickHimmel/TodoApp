@@ -19820,6 +19820,7 @@
 	      }]
 	    };
 	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.handleSearch = _this.handleSearch.bind(_this);
 	    return _this;
 	  }
 
@@ -19827,6 +19828,11 @@
 	    key: 'handleClick',
 	    value: function handleClick(text) {
 	      alert('new todo:' + text);
+	    }
+	  }, {
+	    key: 'handleSearch',
+	    value: function handleSearch(term) {
+	      alert(term);
 	    }
 	  }, {
 	    key: 'render',
@@ -19837,7 +19843,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_TodoSearch2.default, null),
+	        _react2.default.createElement(_TodoSearch2.default, { onSearch: this.handleSearch }),
 	        _react2.default.createElement(_TodoList2.default, { todos: todos }),
 	        _react2.default.createElement(_AddTodo2.default, { onClick: this.handleClick })
 	      );
@@ -20049,6 +20055,7 @@
 	        'form',
 	        null,
 	        _react2.default.createElement('input', {
+	          type: 'search',
 	          placeholder: 'Search Todos',
 	          value: this.state.term,
 	          onChange: this.handleChange

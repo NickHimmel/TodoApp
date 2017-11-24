@@ -16,6 +16,7 @@ class TodoSearch extends Component {
       return (
         <form>
           <input
+            type="search"
             placeholder="Search Todos"
             value={this.state.term}
             onChange={this.handleChange}
