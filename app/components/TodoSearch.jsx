@@ -3,12 +3,24 @@ import React, { Component } from 'react';
 class TodoSearch extends Component {
     constructor(props) {
       super(props);
+      this.state = { term: '' }
+
+      this.handleChange = this.handleChange.bind(this)
     }
+
+    handleChange(event) {
+      this.setState({ term: event.target.value })
+    }
+
     render() {
       return (
-        <div>
-          <h1>Search Todos </h1>  
-        </div>
+        <form>
+          <input
+            placeholder="Search Todos"
+            value={this.state.term}
+            onChange={this.handleChange}
+          />
+        </form>
       )
     }
 }

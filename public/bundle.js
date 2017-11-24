@@ -19989,7 +19989,7 @@
 	          value: this.state.todo,
 	          onChange: this.handleChange
 	        }),
-	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	        _react2.default.createElement('input', { type: 'submit', value: 'Add Todo' })
 	      );
 	    }
 	  }]);
@@ -20029,20 +20029,30 @@
 	  function TodoSearch(props) {
 	    _classCallCheck(this, TodoSearch);
 
-	    return _possibleConstructorReturn(this, (TodoSearch.__proto__ || Object.getPrototypeOf(TodoSearch)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (TodoSearch.__proto__ || Object.getPrototypeOf(TodoSearch)).call(this, props));
+
+	    _this.state = { term: '' };
+
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(TodoSearch, [{
+	    key: 'handleChange',
+	    value: function handleChange(event) {
+	      this.setState({ term: event.target.value });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        'form',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Search Todos '
-	        )
+	        _react2.default.createElement('input', {
+	          placeholder: 'Search Todos',
+	          value: this.state.term,
+	          onChange: this.handleChange
+	        })
 	      );
 	    }
 	  }]);
