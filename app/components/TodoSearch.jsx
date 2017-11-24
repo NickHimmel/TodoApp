@@ -8,8 +8,9 @@ class TodoSearch extends Component {
       this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(event) {
-      this.setState({ term: event.target.value })
+    handleChange(term) {
+      this.setState({ term });
+      this.props.onSearch(term);
     }
 
     render() {
@@ -19,7 +20,7 @@ class TodoSearch extends Component {
             type="search"
             placeholder="Search Todos"
             value={this.state.term}
-            onChange={this.handleChange}
+            onChange={event => this.handleChange(event.target.value)}
           />
         </form>
       )

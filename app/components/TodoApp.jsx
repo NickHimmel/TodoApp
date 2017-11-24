@@ -32,7 +32,7 @@ class TodoApp extends Component {
   }
 
   handleSearch (term) {
-    alert(term)
+    console.log(term);
   }
 
   render() {

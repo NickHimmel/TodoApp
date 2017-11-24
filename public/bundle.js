@@ -19832,7 +19832,7 @@
 	  }, {
 	    key: 'handleSearch',
 	    value: function handleSearch(term) {
-	      alert(term);
+	      console.log(term);
 	    }
 	  }, {
 	    key: 'render',
@@ -20045,12 +20045,15 @@
 
 	  _createClass(TodoSearch, [{
 	    key: 'handleChange',
-	    value: function handleChange(event) {
-	      this.setState({ term: event.target.value });
+	    value: function handleChange(term) {
+	      this.setState({ term: term });
+	      this.props.onSearch(term);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
 	        'form',
 	        null,
@@ -20058,7 +20061,9 @@
 	          type: 'search',
 	          placeholder: 'Search Todos',
 	          value: this.state.term,
-	          onChange: this.handleChange
+	          onChange: function onChange(event) {
+	            return _this2.handleChange(event.target.value);
+	          }
 	        })
 	      );
 	    }
