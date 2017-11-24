@@ -19832,7 +19832,10 @@
 	  }, {
 	    key: 'handleSearch',
 	    value: function handleSearch(term) {
-	      console.log(term);
+	      var results = this.state.todos.filter(function (e) {
+	        return e.text.includes(term);
+	      });
+	      console.log(results);
 	    }
 	  }, {
 	    key: 'render',
@@ -20046,6 +20049,7 @@
 	  _createClass(TodoSearch, [{
 	    key: 'handleChange',
 	    value: function handleChange(term) {
+	      var showCompleted = this.refs.showCompleted.checked;
 	      this.setState({ term: term });
 	      this.props.onSearch(term);
 	    }
@@ -20064,7 +20068,14 @@
 	          onChange: function onChange(event) {
 	            return _this2.handleChange(event.target.value);
 	          }
-	        })
+	        }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement('input', { type: 'checkbox', ref: 'showCompleted', onChange: function onChange(event) {
+	              return _this2.handleChange(event.target.value);
+	            } })
+	        )
 	      );
 	    }
 	  }]);

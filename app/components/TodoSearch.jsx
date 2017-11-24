@@ -9,6 +9,7 @@ class TodoSearch extends Component {
     }
 
     handleChange(term) {
+      var showCompleted = this.refs.showCompleted.checked;
       this.setState({ term });
       this.props.onSearch(term);
     }
@@ -22,9 +23,12 @@ class TodoSearch extends Component {
             value={this.state.term}
             onChange={event => this.handleChange(event.target.value)}
           />
+          <label>
+            <input type="checkbox" ref="showCompleted" onChange={event => this.handleChange(event.target.value)} />
+          </label>
         </form>
       )
     }
 }
 
-export default TodoSearch
+export default TodoSearch;

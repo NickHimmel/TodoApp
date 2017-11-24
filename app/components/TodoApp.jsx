@@ -32,7 +32,8 @@ class TodoApp extends Component {
   }
 
   handleSearch (term) {
-    console.log(term);
+    const results = this.state.todos.filter(e => e.text.includes(term));
+    console.log(results)
   }
 
   render() {
