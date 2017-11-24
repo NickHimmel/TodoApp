@@ -1,4 +1,4 @@
-import React, { Component } from 'react;'
+import React, { Component } from 'react';
 
 class TodoSearch extends Component {
     constructor(props) {
@@ -6,7 +6,9 @@ class TodoSearch extends Component {
     }
     render() {
       return (
-        <div>Search Todos </div>
+        <div>
+          <h1>Search Todos </h1>  
+        </div>
       )
     }
 }
