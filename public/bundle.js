@@ -19831,7 +19831,7 @@
 	    }
 	  }, {
 	    key: 'handleSearch',
-	    value: function handleSearch(term) {
+	    value: function handleSearch(showCompleted, term) {
 	      var results = this.state.todos.filter(function (e) {
 	        return e.text.includes(term);
 	      });
@@ -20051,7 +20051,8 @@
 	    value: function handleChange(term) {
 	      var showCompleted = this.refs.showCompleted.checked;
 	      this.setState({ term: term });
-	      this.props.onSearch(term);
+
+	      this.props.onSearch(showCompleted, term);
 	    }
 	  }, {
 	    key: 'render',

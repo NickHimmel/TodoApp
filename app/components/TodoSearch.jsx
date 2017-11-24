@@ -11,7 +11,8 @@ class TodoSearch extends Component {
     handleChange(term) {
       var showCompleted = this.refs.showCompleted.checked;
       this.setState({ term });
-      this.props.onSearch(term);
+      
+      this.props.onSearch(showCompleted, term);
     }
 
     render() {

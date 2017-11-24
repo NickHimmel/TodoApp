@@ -31,7 +31,7 @@ class TodoApp extends Component {
     alert('new todo:' + text);
   }
 
-  handleSearch (term) {
+  handleSearch (showCompleted, term) {
     const results = this.state.todos.filter(e => e.text.includes(term));
     console.log(results)
   }
