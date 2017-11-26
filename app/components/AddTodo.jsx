@@ -32,7 +32,7 @@ class AddTodo extends Component {
           value={this.state.todo}
           onChange={this.handleChange}
         />
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Add Todo"/>
       </form>
     );
   }
