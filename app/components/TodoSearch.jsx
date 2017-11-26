@@ -3,16 +3,21 @@ import React, { Component } from 'react';
 class TodoSearch extends Component {
     constructor(props) {
       super(props);
-      this.state = { term: '' }
+      this.state = {
+        searchText: '',
+        showCompleted: false
+      }
 
-      this.handleChange = this.handleChange.bind(this)
+      this.handleSearch = this.handleSearch.bind(this)
     }
 
-    handleChange(term) {
-      var showCompleted = this.refs.showCompleted.checked;
-      this.setState({ term });
-      
-      this.props.onSearch(showCompleted, term);
+    handleSearch() {
+      const showCompleted = this.refs.showCompleted.checked;
+      const searchText = this.refs.searchText.value;
+      this.setState( { searchText, showCompleted } );
+      // console.log(this.state.showCompleted)
+
+      this.props.onSearch(this.state.searchText.toLowerCase(), this.state.showCompleted);
     }
 
     render() {
@@ -21,11 +26,18 @@ class TodoSearch extends Component {
           <input
             type="search"
             placeholder="Search Todos"
-            value={this.state.term}
-            onChange={event => this.handleChange(event.target.value)}
+            ref="searchText"
+            value={this.state.searchText}
+            onChange={this.handleSearch}
           />
           <label>
-            <input type="checkbox" ref="showCompleted" onChange={event => this.handleChange(event.target.value)} />
+            <input
+              type="checkbox"
+              ref="showCompleted"
+              value={this.state.showCompleted}
+              onChange={this.handleSearch}
+            />
+            Show completed todos
           </label>
         </form>
       )

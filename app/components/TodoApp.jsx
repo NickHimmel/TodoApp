@@ -7,6 +7,8 @@ class TodoApp extends Component {
   constructor () {
     super();
     this.state = {
+      searchText: '',
+      showCompleted: false,
       todos: [
         {
           id: 1,
@@ -31,9 +33,8 @@ class TodoApp extends Component {
     alert('new todo:' + text);
   }
 
-  handleSearch (showCompleted, term) {
-    const results = this.state.todos.filter(e => e.text.includes(term));
-    console.log(results)
+  handleSearch (searchText, showCompleted) {
+    this.setState( { searchText, showCompleted } );
   }
 
   render() {

@@ -19805,6 +19805,8 @@
 	    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this));
 
 	    _this.state = {
+	      searchText: '',
+	      showCompleted: false,
 	      todos: [{
 	        id: 1,
 	        text: 'Walk the dog'
@@ -19831,11 +19833,8 @@
 	    }
 	  }, {
 	    key: 'handleSearch',
-	    value: function handleSearch(showCompleted, term) {
-	      var results = this.state.todos.filter(function (e) {
-	        return e.text.includes(term);
-	      });
-	      console.log(results);
+	    value: function handleSearch(searchText, showCompleted) {
+	      this.setState({ searchText: searchText, showCompleted: showCompleted });
 	    }
 	  }, {
 	    key: 'render',
@@ -20040,42 +20039,48 @@
 
 	    var _this = _possibleConstructorReturn(this, (TodoSearch.__proto__ || Object.getPrototypeOf(TodoSearch)).call(this, props));
 
-	    _this.state = { term: '' };
+	    _this.state = {
+	      searchText: '',
+	      showCompleted: false
+	    };
 
-	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSearch = _this.handleSearch.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(TodoSearch, [{
-	    key: 'handleChange',
-	    value: function handleChange(term) {
+	    key: 'handleSearch',
+	    value: function handleSearch() {
 	      var showCompleted = this.refs.showCompleted.checked;
-	      this.setState({ term: term });
+	      var searchText = this.refs.searchText.value;
+	      this.setState({ searchText: searchText, showCompleted: showCompleted });
+	      // console.log(this.state.showCompleted)
 
-	      this.props.onSearch(showCompleted, term);
+	      this.props.onSearch(this.state.searchText.toLowerCase(), this.state.showCompleted);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
 	      return _react2.default.createElement(
 	        'form',
 	        null,
 	        _react2.default.createElement('input', {
 	          type: 'search',
 	          placeholder: 'Search Todos',
-	          value: this.state.term,
-	          onChange: function onChange(event) {
-	            return _this2.handleChange(event.target.value);
-	          }
+	          ref: 'searchText',
+	          value: this.state.searchText,
+	          onChange: this.handleSearch
 	        }),
 	        _react2.default.createElement(
 	          'label',
 	          null,
-	          _react2.default.createElement('input', { type: 'checkbox', ref: 'showCompleted', onChange: function onChange(event) {
-	              return _this2.handleChange(event.target.value);
-	            } })
+	          _react2.default.createElement('input', {
+	            type: 'checkbox',
+	            ref: 'showCompleted',
+	            value: this.state.showCompleted,
+	            onChange: this.handleSearch
+	          }),
+	          'Show completed todos'
 	        )
 	      );
 	    }
