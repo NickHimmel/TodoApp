@@ -13,16 +13,20 @@ class TodoApp extends Component {
       todos: [
         {
           id: uuid(),
-          text: 'Walk the dog'
+          text: 'Walk the dog',
+          completed: false
         }, {
           id: uuid(),
-          text: 'Clean the yard'
+          text: 'Clean the yard',
+          completed: false
         }, {
           id: uuid(),
-          text: 'Finish this video'
+          text: 'Finish this video',
+          completed: true
         }, {
           id: uuid(),
-          text: 'Make dinner'
+          text: 'Make dinner',
+          completed: true
         }
       ]
     }
@@ -36,7 +40,8 @@ class TodoApp extends Component {
         ...this.state.todos,
         {
           id: uuid(),
-          text: text
+          text: text,
+          completed: false
         }
       ]
     });

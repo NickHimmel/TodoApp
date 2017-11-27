@@ -1,11 +1,12 @@
 import React from 'react';
 
 const Todo = (props) => {
-  var {id, text} = props;
+  var {completed, text} = props;
 
   return (
     <div>
-      {id}. {text}
+      <input type="checkbox" checked={completed}/>
+      {text}
     </div>
   )
 };

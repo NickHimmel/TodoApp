@@ -19815,16 +19815,20 @@
 	      showCompleted: false,
 	      todos: [{
 	        id: (0, _nodeUuid2.default)(),
-	        text: 'Walk the dog'
+	        text: 'Walk the dog',
+	        completed: false
 	      }, {
 	        id: (0, _nodeUuid2.default)(),
-	        text: 'Clean the yard'
+	        text: 'Clean the yard',
+	        completed: false
 	      }, {
 	        id: (0, _nodeUuid2.default)(),
-	        text: 'Finish this video'
+	        text: 'Finish this video',
+	        completed: true
 	      }, {
 	        id: (0, _nodeUuid2.default)(),
-	        text: 'Make dinner'
+	        text: 'Make dinner',
+	        completed: true
 	      }]
 	    };
 	    _this.handleClick = _this.handleClick.bind(_this);
@@ -19838,7 +19842,8 @@
 	      this.setState({
 	        todos: [].concat(_toConsumableArray(this.state.todos), [{
 	          id: (0, _nodeUuid2.default)(),
-	          text: text
+	          text: text,
+	          completed: false
 	        }])
 	      });
 	    }
@@ -19912,7 +19917,7 @@
 /* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19925,15 +19930,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Todo = function Todo(props) {
-	  var id = props.id,
+	  var completed = props.completed,
 	      text = props.text;
 
 
 	  return _react2.default.createElement(
-	    'div',
+	    "div",
 	    null,
-	    id,
-	    '. ',
+	    _react2.default.createElement("input", { type: "checkbox", checked: completed }),
 	    text
 	  );
 	};
