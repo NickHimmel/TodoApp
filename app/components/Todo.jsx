@@ -6,10 +6,15 @@ class Todo extends Component {
   }
 
   render() {
-    const {completed, text} = this.props;
+    const {id, completed, text} = this.props;
     return (
       <div>
-        <input type="checkbox" checked={completed}/>
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => {
+            this.props.onToggle(id);
+          }}/>
         {text}
       </div>
     )

@@ -19949,14 +19949,22 @@
 	  _createClass(Todo, [{
 	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
+
 	      var _props = this.props,
+	          id = _props.id,
 	          completed = _props.completed,
 	          text = _props.text;
 
 	      return _react2.default.createElement(
 	        "div",
 	        null,
-	        _react2.default.createElement("input", { type: "checkbox", checked: completed }),
+	        _react2.default.createElement("input", {
+	          type: "checkbox",
+	          checked: completed,
+	          onChange: function onChange() {
+	            _this2.props.onToggle(id);
+	          } }),
 	        text
 	      );
 	    }
