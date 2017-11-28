@@ -31,6 +31,7 @@ class TodoApp extends Component {
       ]
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -47,7 +48,19 @@ class TodoApp extends Component {
     });
   }
 
-  
+  handleToggle (id) {
+    const updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+
+      return todo ;
+    });
+
+    this.setState( {todos: updatedTodos} )
+    console.log(this.state.todos)
+  }
+
   handleSearch (searchText, showCompleted) {
     this.setState( { searchText, showCompleted } );
   }
@@ -58,7 +71,7 @@ class TodoApp extends Component {
     return (
       <div>
         <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} onToggle={this.handleToggle}/>
         <AddTodo onClick={this.handleClick}/>
       </div>
     )

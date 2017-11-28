@@ -19832,6 +19832,7 @@
 	      }]
 	    };
 	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.handleToggle = _this.handleToggle.bind(_this);
 	    _this.handleSearch = _this.handleSearch.bind(_this);
 	    return _this;
 	  }
@@ -19848,6 +19849,20 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleToggle',
+	    value: function handleToggle(id) {
+	      var updatedTodos = this.state.todos.map(function (todo) {
+	        if (todo.id === id) {
+	          todo.completed = !todo.completed;
+	        }
+
+	        return todo;
+	      });
+
+	      this.setState({ todos: updatedTodos });
+	      console.log(this.state.todos);
+	    }
+	  }, {
 	    key: 'handleSearch',
 	    value: function handleSearch(searchText, showCompleted) {
 	      this.setState({ searchText: searchText, showCompleted: showCompleted });
@@ -19862,7 +19877,7 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_TodoSearch2.default, { onSearch: this.handleSearch }),
-	        _react2.default.createElement(_TodoList2.default, { todos: todos }),
+	        _react2.default.createElement(_TodoList2.default, { todos: todos, onToggle: this.handleToggle }),
 	        _react2.default.createElement(_AddTodo2.default, { onClick: this.handleClick })
 	      );
 	    }
@@ -19900,7 +19915,7 @@
 
 	  var renderTodos = function renderTodos() {
 	    return todos.map(function (todo) {
-	      return _react2.default.createElement(_Todo2.default, _extends({ key: todo.id }, todo));
+	      return _react2.default.createElement(_Todo2.default, _extends({ key: todo.id }, todo, { onToggle: props.onToggle }));
 	    });
 	  };
 
