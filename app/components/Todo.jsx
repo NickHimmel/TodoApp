@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Todo = (props) => {
-  var {id, text} = props;
+class Todo extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div>
-      {id}. {text}
-    </div>
-  )
+  render() {
+    const {id, completed, text} = this.props;
+    return (
+      <div>
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => {
+            this.props.onToggle(id);
+          }}/>
+        {text}
+      </div>
+    )
+  }
 };
 
 export default Todo;
