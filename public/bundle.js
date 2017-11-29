@@ -19860,7 +19860,6 @@
 	      });
 
 	      this.setState({ todos: updatedTodos });
-	      console.log(this.state.todos);
 	    }
 	  }, {
 	    key: 'handleSearch',

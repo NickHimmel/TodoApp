@@ -58,7 +58,6 @@ class TodoApp extends Component {
     });
 
     this.setState( {todos: updatedTodos} )
-    console.log(this.state.todos)
   }
 
   handleSearch (searchText, showCompleted) {
