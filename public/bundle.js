@@ -19815,8 +19815,8 @@
 	    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this));
 
 	    _this.state = {
-	      searchText: '',
 	      showCompleted: false,
+	      searchText: '',
 	      todos: _TodoAPI2.default.getTodos()
 	    };
 	    _this.handleClick = _this.handleClick.bind(_this);
@@ -19856,20 +19856,26 @@
 	    }
 	  }, {
 	    key: 'handleSearch',
-	    value: function handleSearch(searchText, showCompleted) {
-	      this.setState({ searchText: searchText, showCompleted: showCompleted });
+	    value: function handleSearch(showCompleted, searchText) {
+	      this.setState({
+	        showCompleted: showCompleted,
+	        searchText: searchText.toLowerCase() });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var todos = this.state.todos;
+	      var _state = this.state,
+	          todos = _state.todos,
+	          showCompleted = _state.showCompleted,
+	          searchText = _state.searchText;
 
+	      var filteredTodos = _TodoAPI2.default.filterTodos(todos, showCompleted, searchText);
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_TodoSearch2.default, { onSearch: this.handleSearch }),
-	        _react2.default.createElement(_TodoList2.default, { todos: todos, onToggle: this.handleToggle }),
+	        _react2.default.createElement(_TodoList2.default, { todos: filteredTodos, onToggle: this.handleToggle }),
 	        _react2.default.createElement(_AddTodo2.default, { onClick: this.handleClick })
 	      );
 	    }
@@ -28784,7 +28790,7 @@
 /* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28812,48 +28818,38 @@
 
 	    var _this = _possibleConstructorReturn(this, (TodoSearch.__proto__ || Object.getPrototypeOf(TodoSearch)).call(this, props));
 
-	    _this.state = {
-	      searchText: '',
-	      showCompleted: false
-	    };
-
 	    _this.handleSearch = _this.handleSearch.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(TodoSearch, [{
-	    key: 'handleSearch',
+	    key: "handleSearch",
 	    value: function handleSearch() {
 	      var showCompleted = this.refs.showCompleted.checked;
 	      var searchText = this.refs.searchText.value;
-	      this.setState({ searchText: searchText, showCompleted: showCompleted });
-	      // console.log(this.state.showCompleted)
-
-	      this.props.onSearch(this.state.searchText.toLowerCase(), this.state.showCompleted);
+	      this.props.onSearch(showCompleted, searchText);
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'form',
+	        "form",
 	        null,
-	        _react2.default.createElement('input', {
-	          type: 'search',
-	          placeholder: 'Search Todos',
-	          ref: 'searchText',
-	          value: this.state.searchText,
+	        _react2.default.createElement("input", {
+	          type: "search",
+	          placeholder: "Search Todos",
+	          ref: "searchText",
 	          onChange: this.handleSearch
 	        }),
 	        _react2.default.createElement(
-	          'label',
+	          "label",
 	          null,
-	          _react2.default.createElement('input', {
-	            type: 'checkbox',
-	            ref: 'showCompleted',
-	            value: this.state.showCompleted,
+	          _react2.default.createElement("input", {
+	            type: "checkbox",
+	            ref: "showCompleted",
 	            onChange: this.handleSearch
 	          }),
-	          'Show completed todos'
+	          "Show completed todos"
 	        )
 	      );
 	    }
@@ -28888,6 +28884,33 @@
 	    } catch (e) {}
 
 	    return $.isArray(todos) ? todos : [];
+	  },
+	  filterTodos: function filterTodos(todos, showCompleted, searchText) {
+	    var filteredTodos = todos;
+
+	    // Filter by showCompleted
+	    filteredTodos = filteredTodos.filter(function (todo) {
+	      return !todo.completed || showCompleted;
+	    });
+
+	    // Filter by searchText
+	    filteredTodos = filteredTodos.filter(function (todo) {
+	      var text = todo.text.toLowerCase();
+	      return searchText.length === 0 || text.indexOf(searchText) > -1;
+	    });
+
+	    //sort todos with non-completed first
+	    filteredTodos.sort(function (a, b) {
+	      if (!a.completed && b.completed) {
+	        return -1;
+	      } else if (a.completed && !b.completed) {
+	        return 1;
+	      } else {
+	        return 0;
+	      }
+	    });
+
+	    return filteredTodos;
 	  }
 	};
 
