@@ -49,7 +49,9 @@ class TodoApp extends Component {
   }
 
   handleSearch (showCompleted, searchText) {
-    this.setState( { showCompleted, searchText } );
+    this.setState({
+      showCompleted: showCompleted,
+      searchText: searchText.toLowerCase() } );
   }
 
   render() {

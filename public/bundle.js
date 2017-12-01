@@ -19857,7 +19857,9 @@
 	  }, {
 	    key: 'handleSearch',
 	    value: function handleSearch(showCompleted, searchText) {
-	      this.setState({ showCompleted: showCompleted, searchText: searchText });
+	      this.setState({
+	        showCompleted: showCompleted,
+	        searchText: searchText.toLowerCase() });
 	    }
 	  }, {
 	    key: 'render',
@@ -28885,9 +28887,27 @@
 	  },
 	  filterTodos: function filterTodos(todos, showCompleted, searchText) {
 	    var filteredTodos = todos;
+
 	    // Filter by showCompleted
 	    filteredTodos = filteredTodos.filter(function (todo) {
 	      return !todo.completed || showCompleted;
+	    });
+
+	    // Filter by searchText
+	    filteredTodos = filteredTodos.filter(function (todo) {
+	      var text = todo.text.toLowerCase();
+	      return searchText.length === 0 || text.indexOf(searchText) > -1;
+	    });
+
+	    //sort todos with non-completed first
+	    filteredTodos.sort(function (a, b) {
+	      if (!a.completed && b.completed) {
+	        return -1;
+	      } else if (a.completed && !b.completed) {
+	        return 1;
+	      } else {
+	        return 0;
+	      }
 	    });
 
 	    return filteredTodos;
