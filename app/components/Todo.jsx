@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class Todo extends Component {
   constructor(props) {
@@ -6,7 +7,13 @@ class Todo extends Component {
   }
 
   render() {
-    const {id, completed, text} = this.props;
+    const {id, completed, text, createdAt} = this.props;
+    const renderDate = () => {
+      var message = 'Created ';
+      var timestamp = createdAt;
+
+      return message + moment.unix(timestamp).format('MMMM Do YYYY @ h:mm a');
+    }
     return (
       <div>
         <input
@@ -15,7 +22,8 @@ class Todo extends Component {
           onChange={() => {
             this.props.onToggle(id);
           }}/>
-        {text}
+        <p>{text}</p>
+        <p>{renderDate()}</p>
       </div>
     )
   }

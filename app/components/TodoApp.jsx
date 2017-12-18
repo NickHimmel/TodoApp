@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'node-uuid';
+import moment from 'moment';
 
 import TodoList from 'TodoList.jsx';
 import AddTodo from 'AddTodo.jsx';
@@ -30,7 +31,8 @@ class TodoApp extends Component {
         {
           id: uuid(),
           text: text,
-          completed: false
+          completed: false,
+          createdAt: moment().unix()
         }
       ]
     });
