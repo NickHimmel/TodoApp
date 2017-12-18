@@ -19842,7 +19842,8 @@
 	          id: (0, _nodeUuid2.default)(),
 	          text: text,
 	          completed: false,
-	          createdAt: (0, _moment2.default)().unix()
+	          createdAt: (0, _moment2.default)().unix(),
+	          completedAt: undefined
 	        }])
 	      });
 	    }
@@ -19852,6 +19853,7 @@
 	      var updatedTodos = this.state.todos.map(function (todo) {
 	        if (todo.id === id) {
 	          todo.completed = !todo.completed;
+	          todo.completedAt = todo.completed ? (0, _moment2.default)().unix() : undefined;
 	        }
 
 	        return todo;
@@ -41798,11 +41800,17 @@
 	          id = _props.id,
 	          completed = _props.completed,
 	          text = _props.text,
-	          createdAt = _props.createdAt;
+	          createdAt = _props.createdAt,
+	          completedAt = _props.completedAt;
 
 	      var renderDate = function renderDate() {
 	        var message = 'Created ';
 	        var timestamp = createdAt;
+
+	        if (completed) {
+	          message = 'Completed ';
+	          timestamp = completedAt;
+	        }
 
 	        return message + _moment2.default.unix(timestamp).format('MMMM Do YYYY @ h:mm a');
 	      };

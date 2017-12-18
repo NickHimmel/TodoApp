@@ -7,11 +7,16 @@ class Todo extends Component {
   }
 
   render() {
-    const {id, completed, text, createdAt} = this.props;
+    const {id, completed, text, createdAt, completedAt} = this.props;
     const renderDate = () => {
       var message = 'Created ';
       var timestamp = createdAt;
 
+      if (completed ) {
+        message = 'Completed ';
+        timestamp = completedAt;
+      }
+      
       return message + moment.unix(timestamp).format('MMMM Do YYYY @ h:mm a');
     }
     return (
