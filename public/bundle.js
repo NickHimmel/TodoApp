@@ -19952,10 +19952,10 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column small-centered' },
+	            { className: 'column small-centered small-11 medium-6 large-5' },
 	            _react2.default.createElement(
 	              'div',
-	              null,
+	              { className: 'container' },
 	              _react2.default.createElement(_TodoSearch2.default, { onSearch: this.handleSearch }),
 	              _react2.default.createElement(_TodoList2.default, { todos: filteredTodos, onToggle: this.handleToggle }),
 	              _react2.default.createElement(_AddTodo2.default, { onClick: this.handleClick })
@@ -41982,15 +41982,23 @@
 	    value: function render() {
 
 	      return _react2.default.createElement(
-	        'form',
-	        { onSubmit: this.handleSubmit },
-	        _react2.default.createElement('input', {
-	          type: 'text',
-	          placeholder: 'What do you need to do?',
-	          value: this.state.todo,
-	          onChange: this.handleChange
-	        }),
-	        _react2.default.createElement('input', { type: 'submit', value: 'Add Todo' })
+	        'div',
+	        { className: 'container__footer' },
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSubmit },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            placeholder: 'What do you need to do?',
+	            value: this.state.todo,
+	            onChange: this.handleChange
+	          }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'button expanded' },
+	            ' Add Todo'
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -42047,23 +42055,27 @@
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "form",
-	        null,
-	        _react2.default.createElement("input", {
-	          type: "search",
-	          placeholder: "Search Todos",
-	          ref: "searchText",
-	          onChange: this.handleSearch
-	        }),
+	        "div",
+	        { className: "container__header" },
 	        _react2.default.createElement(
-	          "label",
+	          "form",
 	          null,
 	          _react2.default.createElement("input", {
-	            type: "checkbox",
-	            ref: "showCompleted",
+	            type: "search",
+	            placeholder: "Search Todos",
+	            ref: "searchText",
 	            onChange: this.handleSearch
 	          }),
-	          "Show completed todos"
+	          _react2.default.createElement(
+	            "label",
+	            null,
+	            _react2.default.createElement("input", {
+	              type: "checkbox",
+	              ref: "showCompleted",
+	              onChange: this.handleSearch
+	            }),
+	            "Show completed todos"
+	          )
 	        )
 	      );
 	    }
