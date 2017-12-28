@@ -64,9 +64,17 @@ class TodoApp extends Component {
 
     return (
       <div>
-        <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-        <AddTodo onClick={this.handleClick}/>
+        <h1 className="page-title">Todo App</h1>
+
+        <div className="row">
+          <div className="column small-centered">
+            <div>
+              <TodoSearch onSearch={this.handleSearch}/>
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+              <AddTodo onClick={this.handleClick}/>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
