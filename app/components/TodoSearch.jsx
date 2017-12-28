@@ -16,13 +16,15 @@ class TodoSearch extends Component {
     render() {
       return (
         <div className="container__header">
-          <form>
+          <div>
             <input
               type="search"
               placeholder="Search Todos"
               ref="searchText"
               onChange={this.handleSearch}
             />
+          </div>
+          <div>
             <label>
               <input
                 type="checkbox"
@@ -31,7 +33,7 @@ class TodoSearch extends Component {
               />
               Show completed todos
             </label>
-          </form>
+          </div>
         </div>
       )
     }
