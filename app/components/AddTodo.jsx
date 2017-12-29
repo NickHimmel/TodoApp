@@ -25,15 +25,17 @@ class AddTodo extends Component {
   render() {
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="What do you need to do?"
-          value={this.state.todo}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Add Todo"/>
-      </form>
+      <div className="container__footer">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="What do you need to do?"
+            value={this.state.todo}
+            onChange={this.handleChange}
+          />
+          <button className="button expanded"> Add Todo</button>
+        </form>
+      </div>
     );
   }
 }
